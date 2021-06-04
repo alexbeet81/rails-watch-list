@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <h1 class="list-text">My lists (<%= @lists.length %>) </h1>
+  </div>
+  <div class="row row-cols-3 d-flex justify-content-between">
+    <% @lists.each do |list| %>
+    <% link_to "link", list_path(list) %>
+      <div class="col mb-4">
+        <a class="pic-link" href="<%= list_path(list) %>"><div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1578849278619-e73505e9610f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cG9wY29ybnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60)">
+          <p><%= list.name %></p>
+          <!-- <p><%= link_to "link", list_path(list) %></p> -->
+        </div></a>
+      </div>
+    <% end %>
+  </div>
+</div>

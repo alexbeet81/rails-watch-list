@@ -1,0 +1,39 @@
+<%= render './components/navbar' %>
+
+<!-- banner for the list here -->
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80);">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+  </div>
+</div>
+
+<!-- add a new movie link -->
+<%= link_to "add movie", new_list_bookmark_path(@list) %>
+
+<!-- itterate through list of movies -->
+<div class="movie-container">
+  <div class="row row-cols-2">
+    <% @movies.each do |movie| %>
+      <div class="col">
+        <div class="movie-card">
+          <img src="<%= movie.poster_url %>" alt="">
+          <div class="col movie-body">
+            <div class="title-rating">
+              <h1 class="movie-title"><%= movie.title %></h1>
+              <p class="dot">·</p>
+              <p class="rating"><%= movie.rating %></p>
+              <p class="star">⭐️</p>
+            </div>
+            <p class="movie-text"><%= movie.overview %></p>
+            <div class="comment">
+              <%= icon('fas', 'quote-left') %>
+              <% movie.bookmarks.each do |bookmark|%>
+                <%= bookmark.comment %>
+              <% end %>
+            </div>
+            </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

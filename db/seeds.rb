@@ -3,8 +3,8 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+# Character.create(name: 'Luke', movie: movies.first)
 
 # require 'json'
 # require 'open-uri'
@@ -30,3 +30,21 @@ movies["results"].sample(10).each do |movie|
 end
 
 puts "created #{Movie.count} new movies"
+
+
+puts "destroying lists"
+List.destroy_all
+puts "done"
+puts "creating new lists"
+
+list_1 = List.create!(
+  name: "Alex's Awesome list"
+  )
+list_2 = List.create!(
+  name: "Action Movies"
+  )
+list_3 = List.create!(
+  name: "My favourite movies"
+  )
+
+puts "done making lists"
