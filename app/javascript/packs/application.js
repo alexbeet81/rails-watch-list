@@ -10,6 +10,8 @@ import "channels";
 import 'bootstrap';
 import { loadDynamicBannerText } from '../components/banner';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
 
 Rails.start()
 Turbolinks.start()
@@ -26,3 +28,6 @@ document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   initUpdateNavbarOnScroll();
 });
+
+// ..
+AOS.init();

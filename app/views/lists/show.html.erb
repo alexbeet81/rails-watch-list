@@ -8,13 +8,25 @@
 </div>
 
 <!-- add a new movie link -->
-<%= link_to "add movie", new_list_bookmark_path(@list) %>
-
+<div class="btn-container">
+  <div class="btn-show-page">
+    <%= link_to "add movie", new_list_bookmark_path(@list), class: "btn btn-flat" %>
+    <div class="row row-cols-2">
+  </div>
+</div>
 <!-- itterate through list of movies -->
 <div class="movie-container">
   <div class="row row-cols-2">
     <% @movies.each do |movie| %>
       <div class="col">
+        <div data-aos="fade-up"
+         data-aos-offset="2"
+         data-aos-delay="5"
+         data-aos-duration="1000"
+         data-aos-easing="ease-in-out"
+         data-aos-mirror="true"
+         data-aos-once="false"
+         data-aos-anchor-placement="center">
         <div class="movie-card">
           <img src="<%= movie.poster_url %>" alt="">
           <div class="col movie-body">
@@ -25,14 +37,24 @@
               <p class="star">⭐️</p>
             </div>
             <p class="movie-text"><%= movie.overview %></p>
+            <% movie.bookmarks.each do |bookmark| %>
+              <% if bookmark.list_id == @list_id %>
+                <%= link_to "delete", bookmark_path(bookmark),
+                      method: :delete,
+                      data: { confrim: 'You want to remove this movie?'}%>
+              <% end %>
+            <% end %>
             <div class="comment">
               <%= icon('fas', 'quote-left') %>
               <% movie.bookmarks.each do |bookmark|%>
-                <%= bookmark.comment %>
+                <% if bookmark.list_id == @list.id %>
+                  <%= bookmark.comment %>
+                <% end %>
               <% end %>
             </div>
             </div>
         </div>
+      </div>
       </div>
     <% end %>
   </div>
