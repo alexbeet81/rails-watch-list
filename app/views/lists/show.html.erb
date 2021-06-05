@@ -36,14 +36,17 @@
               <p class="rating"><%= movie.rating %></p>
               <p class="star">⭐️</p>
             </div>
+
             <p class="movie-text"><%= movie.overview %></p>
-            <% movie.bookmarks.each do |bookmark| %>
-              <% if bookmark.list_id == @list_id %>
-                <%= link_to "delete", bookmark_path(bookmark),
+            <p>
+              <% movie.bookmarks.each do |bookmark|%>
+                <% if bookmark.list_id == @list.id %>
+                  <%= link_to "delete", bookmark_path(bookmark),
                       method: :delete,
-                      data: { confrim: 'You want to remove this movie?'}%>
+                      data: { confirm: 'You want to remove this movie?'}%>
+                <% end %>
               <% end %>
-            <% end %>
+            </p>
             <div class="comment">
               <%= icon('fas', 'quote-left') %>
               <% movie.bookmarks.each do |bookmark|%>
