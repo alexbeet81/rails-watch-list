@@ -26,6 +26,8 @@ gem 'font-awesome-sass', '~> 5.15.1'
 gem 'simple_form'
 gem 'open-uri'
 gem 'json'
+gem 'activestorage-aliyun'
+gem 'image_processing'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
