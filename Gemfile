@@ -28,6 +28,7 @@ gem 'open-uri'
 gem 'json'
 gem 'activestorage-aliyun'
 gem 'image_processing'
+gem 'dotenv-rails', groups: [:development, :test]
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
