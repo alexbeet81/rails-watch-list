@@ -1,4 +1,6 @@
-<div class="container">
+<%= render './components/navbar' %>
+<h1 class="form-text">create a new list</h1>
+<div class="container form">
   <%= simple_form_for(@list) do |f| %>
     <%= f.input :name %>
     <%= f.input :photo, as: :file %>

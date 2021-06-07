@@ -18,7 +18,7 @@ url = 'http://tmdb.lewagon.com/movie/top_rated'
 user_serialized = URI.open(url).read
 movies = JSON.parse(user_serialized)
 
-movies["results"].sample(10).each do |movie|
+movies["results"].sample(100).each do |movie|
   new_movie = Movie.create!(
     title: movie['title'],
     overview: movie['overview'],
@@ -35,16 +35,16 @@ puts "created #{Movie.count} new movies"
 puts "destroying lists"
 List.destroy_all
 puts "done"
-puts "creating new lists"
+# puts "creating new lists"
 
-list_1 = List.create!(
-  name: "Alex's Awesome list"
-  )
-list_2 = List.create!(
-  name: "Action Movies"
-  )
-list_3 = List.create!(
-  name: "My favourite movies"
-  )
+# list_1 = List.create!(
+#   name: "Alex's Awesome list"
+#   )
+# list_2 = List.create!(
+#   name: "Action Movies"
+#   )
+# list_3 = List.create!(
+#   name: "My favourite movies"
+#   )
 
-puts "done making lists"
+# puts "done making lists"

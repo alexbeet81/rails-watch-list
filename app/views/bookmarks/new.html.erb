@@ -1,4 +1,6 @@
-<div class="container">
+<%= render './components/navbar' %>
+<h1 class="form-text">add a movie to your list</h1>
+<div class="container form">
   <%= simple_form_for([@list, @bookmark] ) do |f| %>
     <%= f.input :comment %>
     <%= f.association :movie %>
