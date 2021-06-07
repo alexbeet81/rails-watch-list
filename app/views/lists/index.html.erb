@@ -4,7 +4,7 @@
 <%= render './components/banner' %>
 <!-- cards displaying the lists -->
 <!-- choose a random image for now. -->
-<div class="container">
+<div class="container list-container">
   <div class="d-flex justify-content-between">
     <h1 class="list-text">my lists (<%= @lists.length %>) </h1>
   </div>
@@ -19,12 +19,5 @@
     <% end %>
   </div>
 </div>
-<h1 class="form-text">create a new list</h1>
-<div class="container form">
-  <%= simple_form_for(@list) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit %>
-  <% end %>
-</div>
+
 

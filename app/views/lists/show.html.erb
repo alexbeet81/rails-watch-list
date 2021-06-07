@@ -3,18 +3,28 @@
 <!-- banner for the list here -->
 <% image = @list.photo.attached? ? @list.photo.key : "../popcorn.jpeg" %>
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path image %>');">
-  <div class="container">
+  <div class="container form-container">
     <h1><%= @list.name %></h1>
+  </div>
+  <div class="form_list_box">
+    <h1 class="form-text">add a movie to your list</h1>
+    <div class="container form">
+      <%= simple_form_for([@list, @bookmark] ) do |f| %>
+        <%= f.input :comment %>
+        <%= f.association :movie %>
+        <%= f.submit %>
+      <% end %>
+    </div>
   </div>
 </div>
 
 <!-- add a new movie link -->
-<div class="btn-container">
+<!-- <div class="btn-container">
   <div class="btn-show-page">
     <%= link_to "add movie", new_list_bookmark_path(@list), class: "btn btn-flat" %>
     <div class="row row-cols-2">
   </div>
-</div>
+</div> -->
 <!-- itterate through list of movies -->
 <div class="movie-container">
   <div class="row row-cols-2">

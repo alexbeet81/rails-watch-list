@@ -3,9 +3,13 @@ class ListsController < ApplicationController
 
   def index
     @lists = List.all
+
+    @list = List.new
   end
 
   def show
+    @bookmark = Bookmark.new
+
     @movies = @list.movies
 
     @bookmarks = @list.bookmarks

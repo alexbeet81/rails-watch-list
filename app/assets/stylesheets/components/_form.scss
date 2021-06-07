@@ -6,8 +6,12 @@
   background-color: #f8f9fa;
 }
 
-.form-text {
-  margin-top: 64px;
-  text-align: center;
-  color: #7c7c7d;
+.list-container {
+  position: relative;
+}
+
+.form_list_box {
+  position: absolute;
+  top: 17px;
+  left: 915px;
 }
